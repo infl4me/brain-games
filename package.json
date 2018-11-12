@@ -1,7 +1,7 @@
 {
   "name": "brain-gamez12345",
   "version": "1.0.3",
-  "description": "",
+  "description": "Brain-games set",
   "main": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
