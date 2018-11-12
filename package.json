@@ -1,6 +1,6 @@
 {
   "name": "brain-gamez12345",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Brain-games set",
   "main": "",
   "bin": {
@@ -14,7 +14,9 @@
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
-  "author": "",
+  "keywords": [
+    "brain", "games", "brain-games"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.1.5",
