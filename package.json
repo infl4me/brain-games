@@ -15,7 +15,9 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": [
-    "brain", "games", "brain-games"
+    "brain",
+    "games",
+    "brain-games"
   ],
   "license": "ISC",
   "devDependencies": {
