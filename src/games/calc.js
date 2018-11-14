@@ -4,7 +4,7 @@ import makeGame from '../gameEngine';
 
 const description = 'What is the result of the expression?';
 
-const makeExpression = () => {
+const generateGameData = () => {
   const operand1 = getRandomInteger(10);
   const operand2 = getRandomInteger(10);
   let result = 0;
@@ -25,8 +25,10 @@ const makeExpression = () => {
       break;
     default:
   }
+  const question = `${operand1} ${operation} ${operand2}`;
+  const rightAnswer = String(result);
 
-  return cons(`${operand1} ${operation} ${operand2}`, String(result));
+  return cons(question, rightAnswer);
 };
 
-export default () => makeGame(description, makeExpression);
+export default () => makeGame(description, generateGameData);

@@ -6,11 +6,11 @@ const isEven = num => num % 2 === 0;
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 
-const makePair = () => {
+const generateGameData = () => {
   const question = getRandomInteger();
   const rightAnswer = isEven(question) ? 'yes' : 'no';
 
   return cons(question, rightAnswer);
 };
 
-export default () => makeGame(description, makePair);
+export default () => makeGame(description, generateGameData);
