@@ -23,6 +23,7 @@ const makeExpression = () => {
       operation = '*';
       result = operand1 * operand2;
       break;
+    default:
   }
 
   return cons(`${operand1} ${operation} ${operand2}`, String(result));
