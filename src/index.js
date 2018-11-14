@@ -1,4 +1,4 @@
-import { welcomeMessage, getName } from './lib/gameEngine';
+import { welcomeMessage, getName } from './gameEngine';
 
 export default () => {
   console.log(`${welcomeMessage}\n`);
