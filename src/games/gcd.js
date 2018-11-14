@@ -7,8 +7,8 @@ const description = 'Find the greatest common divisor of given numbers.';
 const getGcd = (a, b) => (b === 0 ? a : getGcd(b, a % b));
 
 const makePair = () => {
-  const number1 = getRandomInteger(10);
-  const number2 = getRandomInteger(10);
+  const number1 = getRandomInteger();
+  const number2 = getRandomInteger();
 
   const question = `${number1} ${number2}`;
   const rightAnswer = getGcd(number1, number2);
