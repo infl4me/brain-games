@@ -1,8 +1,4 @@
-import readlineSync from 'readline-sync';
-
-export const welcomeMessage = 'Welcome to the Brain Games!';
-
-export const getName = () => readlineSync.question('May I have your name? ');
+import { welcomeMessage, getName } from './lib/gameEngine';
 
 export default () => {
   console.log(`${welcomeMessage}\n`);
