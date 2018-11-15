@@ -7,22 +7,22 @@ const description = 'What number is missing in the progression';
 const generateGameData = () => {
   let progression = '';
   const firstTerm = getRandomInteger(15);
-  const progressionStep = getRandomInteger(5, 2);
+  const progressionDifference = getRandomInteger(5, 2);
   const progressionLength = 10;
-  const hiddenElement = getRandomInteger(9, 0);
-  let currentValue = firstTerm;
+  const hiddenTerm = getRandomInteger(9, 0);
+  let currentTerm = firstTerm;
   let rightAnswer = 0;
 
   for (let i = 0; i < progressionLength; i += 1) {
-    if (i === hiddenElement) {
-      rightAnswer = String(currentValue);
+    if (i === hiddenTerm) {
+      rightAnswer = String(currentTerm);
       progression += '.. ';
     } else if (i === progressionLength - 1) {
-      progression += `${currentValue}`;
+      progression += `${currentTerm}`;
     } else {
-      progression += `${currentValue} `;
+      progression += `${currentTerm} `;
     }
-    currentValue += progressionStep;
+    currentTerm += progressionDifference;
   }
   const question = progression;
 
