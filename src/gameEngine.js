@@ -12,15 +12,15 @@ const numberOfQuestions = 3;
 const getQuestion = pair => car(pair);
 const getRightAnswer = pair => cdr(pair);
 
-export default (rules, makeGameData) => {
+export default (description, generateGameData) => {
   console.log(welcomeMessage);
-  console.log(`${rules}\n`);
+  console.log(`${description}\n`);
 
   const name = getName();
   console.log(`Hello, ${name}!\n`);
 
   for (let i = 0; i < numberOfQuestions; i += 1) {
-    const gameData = makeGameData();
+    const gameData = generateGameData();
     const question = getQuestion(gameData);
     console.log(`Question: ${question}`);
 
