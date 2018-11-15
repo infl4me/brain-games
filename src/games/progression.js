@@ -4,29 +4,26 @@ import getRandomInteger from '../tools';
 
 const description = 'What number is missing in the progression';
 
+const progressionLength = 10;
+
 const generateGameData = () => {
   let progression = '';
   const firstTerm = getRandomInteger(15);
-  const progressionDifference = getRandomInteger(5, 2);
-  const progressionLength = 10;
-  const hiddenTerm = getRandomInteger(9, 0);
-  let currentTerm = firstTerm;
-  let rightAnswer = 0;
+  const progressionStep = getRandomInteger(5, 2);
+  const hiddenIndex = getRandomInteger(progressionLength - 1, 0);
 
   for (let i = 0; i < progressionLength; i += 1) {
-    if (i === hiddenTerm) {
-      rightAnswer = String(currentTerm);
+    if (i === hiddenIndex) {
       progression += '.. ';
-    } else if (i === progressionLength - 1) {
-      progression += `${currentTerm}`;
     } else {
-      progression += `${currentTerm} `;
+      progression += `${firstTerm + progressionStep * i} `;
     }
-    currentTerm += progressionDifference;
   }
-  const question = progression;
 
-  return cons(question, rightAnswer);
+  const question = progression;
+  const rightAnswer = firstTerm + progressionStep * hiddenIndex;
+
+  return cons(question, String(rightAnswer));
 };
 
 export default () => makeGame(description, generateGameData);
