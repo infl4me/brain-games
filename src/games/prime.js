@@ -2,10 +2,21 @@ import { cons } from 'hexlet-pairs';
 import makeGame from '../gameEngine';
 import getRandomInteger from '../tools';
 
-const isPrime = (number, divisor = Math.floor(number / 2)) => {
-  if (divisor === 1) return true;
+const isPrime = (num) => {
+  if (num < 2) return false;
 
-  return (number % divisor === 0 || number < 2) ? false : isPrime(number, divisor - 1);
+  const iter = (counter) => {
+    if (counter > num / 2) {
+      return true;
+    }
+    if (num % counter === 0) {
+      return false;
+    }
+
+    return iter(counter + 1);
+  };
+
+  return iter(2);
 };
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
