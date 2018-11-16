@@ -13,10 +13,11 @@ const getQuestion = pair => car(pair);
 const getAnswer = pair => cdr(pair);
 
 export default (description, generateGameData, userNameFromMenu) => {
-  if (!userNameFromMenu) console.log(welcomeMessage);
+  const hasName = userNameFromMenu !== undefined;
+  if (!hasName) console.log(welcomeMessage);
   console.log(`\n${description}\n`);
-  const name = userNameFromMenu || getName();
-  if (!userNameFromMenu) console.log(`Hello, ${name}!\n`);
+  const name = hasName ? userNameFromMenu : getName();
+  if (!hasName) console.log(`Hello, ${name}!\n`);
 
   for (let i = 0; i < numberOfQuestions; i += 1) {
     const gameData = generateGameData();
