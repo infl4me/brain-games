@@ -8,9 +8,9 @@ const description = 'Answer "yes" if number even otherwise answer "no".';
 
 const generateGameData = () => {
   const question = getRandomInteger();
-  const rightAnswer = isEven(question) ? 'yes' : 'no';
+  const answer = isEven(question) ? 'yes' : 'no';
 
-  return cons(question, rightAnswer);
+  return cons(question, answer);
 };
 
-export default () => makeGame(description, generateGameData);
+export default userNameFromMenu => makeGame(description, generateGameData, userNameFromMenu);

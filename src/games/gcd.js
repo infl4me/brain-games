@@ -11,9 +11,9 @@ const generateGameData = () => {
   const number2 = getRandomInteger();
 
   const question = `${number1} ${number2}`;
-  const rightAnswer = getGcd(number1, number2);
+  const answer = getGcd(number1, number2);
 
-  return cons(question, String(rightAnswer));
+  return cons(question, String(answer));
 };
 
-export default () => makeGame(description, generateGameData);
+export default userNameFromMenu => makeGame(description, generateGameData, userNameFromMenu);

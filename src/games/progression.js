@@ -21,9 +21,9 @@ const generateGameData = () => {
   }
 
   const question = progression;
-  const rightAnswer = firstTerm + progressionStep * hiddenIndex;
+  const answer = firstTerm + progressionStep * hiddenIndex;
 
-  return cons(question, String(rightAnswer));
+  return cons(question, String(answer));
 };
 
-export default () => makeGame(description, generateGameData);
+export default userNameFromMenu => makeGame(description, generateGameData, userNameFromMenu);

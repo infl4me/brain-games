@@ -5,32 +5,31 @@ export const getName = () => readlineSync.question('May I have your name? ');
 
 export const welcomeMessage = 'Welcome to the Brain Games!';
 
-const getAnswer = () => readlineSync.question('Your answer: ');
+const getUserAnswer = () => readlineSync.question('Your answer: ');
 
 const numberOfQuestions = 3;
 
 const getQuestion = pair => car(pair);
-const getRightAnswer = pair => cdr(pair);
+const getAnswer = pair => cdr(pair);
 
-export default (description, generateGameData) => {
-  console.log(welcomeMessage);
-  console.log(`${description}\n`);
-
-  const name = getName();
-  console.log(`Hello, ${name}!\n`);
+export default (description, generateGameData, userNameFromMenu) => {
+  if (!userNameFromMenu) console.log(welcomeMessage);
+  console.log(`\n${description}\n`);
+  const name = userNameFromMenu || getName();
+  if (!userNameFromMenu) console.log(`Hello, ${name}!\n`);
 
   for (let i = 0; i < numberOfQuestions; i += 1) {
     const gameData = generateGameData();
     const question = getQuestion(gameData);
     console.log(`Question: ${question}`);
 
-    const answer = getAnswer();
-    const rightAnswer = getRightAnswer(gameData);
-    const isAnswerCorrect = answer === rightAnswer;
+    const userAnswer = getUserAnswer();
+    const answer = getAnswer(gameData);
+    const isAnswerCorrect = userAnswer === answer;
     if (isAnswerCorrect) {
       console.log('Correct!');
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.\nLet's try again, ${name}!`);
       return;
     }
   }

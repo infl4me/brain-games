@@ -26,9 +26,9 @@ const generateGameData = () => {
     default:
   }
   const question = `${operand1} ${operation} ${operand2}`;
-  const rightAnswer = String(result);
+  const answer = String(result);
 
-  return cons(question, rightAnswer);
+  return cons(question, answer);
 };
 
-export default () => makeGame(description, generateGameData);
+export default userNameFromMenu => makeGame(description, generateGameData, userNameFromMenu);
