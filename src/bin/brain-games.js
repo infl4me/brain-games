@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import greeting from '..';
+import runGameMenu from '..';
 
-greeting();
+runGameMenu();
