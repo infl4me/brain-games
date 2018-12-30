@@ -7,7 +7,7 @@ export const welcomeMessage = 'Welcome to the Brain Games!';
 
 const getUserAnswer = () => readlineSync.question('Your answer: ');
 
-const numberOfQuestions = 3;
+const numberOfRounds = 3;
 
 const getQuestion = pair => car(pair);
 const getAnswer = pair => cdr(pair);
@@ -19,7 +19,11 @@ export default (description, generateGameData, userNameFromMenu) => {
   const name = hasName ? userNameFromMenu : getName();
   if (!hasName) console.log(`Hello, ${name}!\n`);
 
-  for (let i = 0; i < numberOfQuestions; i += 1) {
+  const runRound = (count) => {
+    if (count === 0) {
+      console.log(`Congratulations, ${name}!`);
+      return;
+    }
     const gameData = generateGameData();
     const question = getQuestion(gameData);
     console.log(`Question: ${question}`);
@@ -29,11 +33,10 @@ export default (description, generateGameData, userNameFromMenu) => {
     const isAnswerCorrect = userAnswer === answer;
     if (isAnswerCorrect) {
       console.log('Correct!');
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.\nLet's try again, ${name}!`);
+      runRound(count - 1);
       return;
     }
-  }
-
-  console.log(`Congratulations, ${name}!`);
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.\nLet's try again, ${name}!`);
+  };
+  runRound(numberOfRounds);
 };
